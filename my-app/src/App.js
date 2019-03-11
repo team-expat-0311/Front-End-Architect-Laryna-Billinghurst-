@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import './App.css';
 
+import Login from './components/Login';
 import Public from './components/Public';
+import PrivateRoute from './components/PrivateRoute';
+import Protected from './components/Protected';
 
 class App extends Component {
   render() {
@@ -15,9 +18,11 @@ class App extends Component {
             <Link to="/public">Register New Account</Link>
           </li>
           <li>
-            <Link to="/protected">Start Expat</Link>
+            <Link to="/protected">Login Expat</Link>
           </li>
       </ul>
+      <Route path="/login" component={Login} />
+      <PrivateRoute exact path="/protected" component={Protected} />
       <Route path='/public' component={Public} />
       </div>
       </Router>
