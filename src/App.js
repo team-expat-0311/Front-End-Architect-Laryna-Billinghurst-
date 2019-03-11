@@ -5,6 +5,7 @@ import './App.css';
 import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute';
 import Protected from './components/Protected';
+import Public from './components/Public';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
       </ul>
       <Route path="/login" component={Login} />
       <PrivateRoute exact path="/protected" component={Protected} />
+      <Route path='/public' component={Public} />
       </div>
       </Router>
     );
