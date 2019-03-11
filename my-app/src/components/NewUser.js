@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import { addUser } from '../actions';
+
 
 class NewUser extends Component {
   state = {
@@ -69,7 +71,7 @@ class NewUser extends Component {
           className="input"
           value={this.state.age}
           name="age"
-          type="text"
+          type="number"
           placeholder="Age"
           onChange={this.handleInputChange}
         />
@@ -91,8 +93,9 @@ class NewUser extends Component {
 
 const mapStateToProps = state => {
   return {
-
+    addingUser: state.addingUser,
+    error: state.error
   };
 };
 
-export default connect(mapStateToProps, {})(NewUser);
+export default connect(mapStateToProps, { addUser })(NewUser);
