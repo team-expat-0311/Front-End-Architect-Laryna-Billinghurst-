@@ -1,5 +1,5 @@
 import axios from 'axios';
-
+// seperated exports represents export code block
 export const LOGIN_START = 'LOGIN_START';
 
 export const ERROR = 'ERROR';
@@ -10,11 +10,16 @@ export const ADD_USER = 'ADD_USER';
 export const GETTING_PHOTOS = 'GETTING_PHOTOS';
 export const GET_PHOTOS = 'GET_PHOTOS';
 
+export const ADDING_PHOTO = 'ADDING_PHOTO';
+export const ADD_PHOTO = 'ADD_PHOTO';
+
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios.post('https://expat-journal.herokuapp.com/api/auth/login', creds)
-  .then(res => {localStorage.setItem('token', res.data.token, console.log(res));
-  dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.payload });
+  .then(res => {
+    localStorage.setItem('token', res.data.token, console.log(res));
+    localStorage.setItem('user_id', res.data.user_id, console.log(res));
+    dispatch({ type: 'LOGIN_SUCCESS', payload: res.data.payload });
   })
 }
 
@@ -47,4 +52,21 @@ export const getPhotos = () => {
         dispatch({ type: ERROR, payload: err });
       });
     };
+};
+
+export const addPhoto = (id, photo) => {
+  const newPhoto = axios.post(`https://expat-journal.herokuapp.com/api/photos/all/${id}`, photo, 
+  {headers: { Authorization: localStorage.getItem('token') }}
+  )
+  return dispatch => {
+    dispatch({ type: ADDING_PHOTO });
+      newPhoto
+    .then(({ data }) => {
+      console.log(data)
+      dispatch({ type: ADD_PHOTO, payload: data });
+    })
+    .catch(err => {
+      dispatch({ type: ERROR, payload: err });
+    });
+  };
 };

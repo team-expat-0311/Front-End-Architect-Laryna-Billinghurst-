@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 
 import { addUser } from '../actions';
 
-
 class NewUser extends Component {
   state = {
     username: '',
@@ -13,6 +12,7 @@ class NewUser extends Component {
     age: '',
     location: ''
   };
+  
   handleInputChange = event => {
     this.setState({ [event.target.name]: event.target.value });
   };
@@ -22,15 +22,6 @@ class NewUser extends Component {
     this.props.addUser({ username, password, name, role, age, location });
     this.setState({ username: '', password: '', name: '', role: '', age: '', location: '' });
   };
-
-//   {
-//     "username": "test2",
-// 	"password": "test",
-// 	"name": "dan",
-// 	"role": "viewer",
-// 	"age": 30,
-// 	"location": "Tokyo"
-// }
 
   render() {
     return (
@@ -59,14 +50,11 @@ class NewUser extends Component {
           placeholder="Name"
           onChange={this.handleInputChange}
         />
-        <input
-          className="input"
-          value={this.state.role}
-          name="role"
-          type="text"
-          placeholder="Role"
-          onChange={this.handleInputChange}
-        />
+        {/* select option for setting user role */}
+        <select value={this.state.value} name="role" onChange={this.handleInputChange}>
+            <option value='expat'>Expat</option>
+            <option value='viewer'>Viewer</option>
+        </select>
         <input
           className="input"
           value={this.state.age}

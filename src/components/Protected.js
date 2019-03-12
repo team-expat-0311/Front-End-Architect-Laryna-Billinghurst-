@@ -1,8 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import { getPhotos } from '../actions';
 
 import Photo from './Photo';
+import PhotoForm from './PhotoForm'
 
 class Protected extends React.Component {
     componentDidMount() {
@@ -12,7 +14,11 @@ class Protected extends React.Component {
     render() {
         return (
           <div>
+            <header>
             <h1>Expat Journey List</h1>
+            <PhotoForm />
+            </header>
+            {/* Prop switcher, for loading pourposes */}
             {this.props.gettingPhotos ? (
               <h3>Getting Photos</h3>
             ) : (
@@ -23,6 +29,8 @@ class Protected extends React.Component {
                     <Photo
                         img_url={all.img_url}
                         key={all.id}     
+                        description={all.description}
+                        location={all.location}
                     />
                   </div>
                   );
