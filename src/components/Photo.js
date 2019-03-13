@@ -22,17 +22,8 @@ class Photo extends React.Component {
   render() {
     return (
       <div>
-        <ul>
-          {this.props.all.map(photo => {
-            return (
-              <button onClick={() => this.handleShowPhoto(photo)} key={photo.id}>
-                {photo.location}
-                {/* <img src={photo.img_url} alt={photo.location} /> */}
-              </button>
-            );
-          })}
-        </ul>
-        {Object.keys(this.props.photoSelected).length > 0 ? (
+        <div>
+        {Object.keys(this.props.photoSelected) ? (
           <SelectedPhoto
             handleShowPhoto={this.handleShowPhoto}
             toggleShowUpdate={this.toggleShowUpdate}
@@ -46,6 +37,16 @@ class Photo extends React.Component {
         {this.props.deletingPhoto ? (
           <img src='https://www.andreasartgallery.com/wp-content/uploads/2018/05/button_PatienceLoading.jpg' alt="loading" />
         ) : null}
+        </div>
+        <ul>
+          {this.props.all.map(photo => {
+            return (
+              <button onClick={() => this.handleShowPhoto(photo)} key={photo.id}>
+                <img src={photo.img_url} alt={photo.location} />
+              </button>
+            );
+          })}
+        </ul>
       </div>
     );
   }
