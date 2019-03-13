@@ -19,25 +19,14 @@ class Protected extends React.Component {
             <PhotoForm />
             </header>
             {/* Prop switcher, for loading pourposes */}
+            {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}  
             {this.props.gettingPhotos ? (
               <h3>Getting Photos</h3>
             ) : (
               <div>
-                {this.props.all.map(all => {
-                  return (
-                  <div>  
-                    <Photo
-                        img_url={all.img_url}
-                        key={all.id}     
-                        description={all.description}
-                        location={all.location}
-                    />
-                  </div>
-                  );
-                })}
+                <Photo all={this.props.all} />
               </div>
-            )}
-            {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}            
+            )}          
           </div>
           
         );

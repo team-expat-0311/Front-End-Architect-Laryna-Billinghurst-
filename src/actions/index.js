@@ -13,6 +13,13 @@ export const GET_PHOTOS = 'GET_PHOTOS';
 export const ADDING_PHOTO = 'ADDING_PHOTO';
 export const ADD_PHOTO = 'ADD_PHOTO';
 
+export const UPDATE_PHOTO = 'UPDATE_PHOTO';
+export const DELETE_PHOTO = 'DELETE_PHOTO';
+export const UPDATING_PHOTO = 'UPDATING_PHOTO';
+export const DELETING_PHOTO = 'DELETING_PHOTO';
+export const SINGLE_PHOTO = 'SINGLE_PHOTO';
+export const TOGGLE_UPDATE_PHOTO = 'TOGGLE_UPDATE_PHOTO';
+
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
   return axios.post('https://expat-journal.herokuapp.com/api/auth/login', creds)
@@ -68,5 +75,36 @@ export const addPhoto = (id, photo) => {
     .catch(err => {
       dispatch({ type: ERROR, payload: err });
     });
+  };
+};
+
+export const deletePhoto = (photoId)  => {
+  const deletedPhoto = axios.delete(`https://expat-journal.herokuapp.com/api/photos/all/${photoId}`,
+  {headers: { Authorization: localStorage.getItem('token') }
+});
+  return dispatch => {
+    
+    dispatch({ type: DELETING_PHOTO });
+    deletedPhoto
+      .then(({ data }) => {
+        dispatch({ type: DELETE_PHOTO, payload: data });
+        dispatch({ type: SINGLE_PHOTO, payload: {} });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};
+
+export const toggleShowUpdate = () => {
+  return {
+    type: TOGGLE_UPDATE_PHOTO
+  };
+};
+
+export const updateSinglePhoto = photo => {
+  return {
+    type: SINGLE_PHOTO,
+    payload: photo
   };
 };
