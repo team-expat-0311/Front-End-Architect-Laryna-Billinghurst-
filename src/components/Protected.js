@@ -5,6 +5,8 @@ import { getPhotos } from '../actions';
 
 import Photo from './Photo';
 import PhotoForm from './PhotoForm'
+import ImgDrop from './ImgDrop';
+
 
 class Protected extends React.Component {
     componentDidMount() {
@@ -16,7 +18,9 @@ class Protected extends React.Component {
           <div>
             <header>
             <h1>Expat Journey List</h1>
+            {/* <ImgDrop /> */}
             <PhotoForm />
+            {/* <Dropzone>Drop Image Here</Dropzone> */}
             </header>
             {/* Prop switcher, for loading pourposes */}
             {this.props.error !== "" ? <h4>{this.props.error}</h4> : null}  
