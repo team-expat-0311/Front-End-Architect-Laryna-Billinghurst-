@@ -3,7 +3,7 @@ import React from 'react';
 import SelectedPhoto from './SelectedPhoto';
 import UpdatePhotoForm from './UpdatePhotoForm';
 import { connect } from 'react-redux';
-import { deletePhoto, updateSinglePhoto, toggleShowUpdate } from '../actions';
+import { deletePhoto, updateSinglePhoto, toggleShowUpdate, submitEdit } from '../actions';
 
 
 class Photo extends React.Component {

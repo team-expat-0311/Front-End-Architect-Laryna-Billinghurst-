@@ -113,11 +113,12 @@ export const updateSinglePhoto = photo => {
 export const submitEdit = (edits, photoId) => {
   return function(dispatch) {
     axios
-      .put(`https://expat-journal.herokuapp.com/api/photos/all${photoId}`, edits)
+      .put(`https://expat-journal.herokuapp.com/api/photos/all/${photoId}`, edits)
       .then(({ data }) => {
-        dispatch({ type: GET_PHOTOS, payload: data });
+        dispatch({ type: SINGLE_PHOTO, payload: data });
       })
       .catch(err => {
         dispatch({ type: ERROR, payload: err });
       });
   };
+};  
