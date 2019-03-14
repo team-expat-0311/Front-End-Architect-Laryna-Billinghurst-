@@ -19,6 +19,7 @@ export const UPDATING_PHOTO = 'UPDATING_PHOTO';
 export const DELETING_PHOTO = 'DELETING_PHOTO';
 export const SINGLE_PHOTO = 'SINGLE_PHOTO';
 export const TOGGLE_UPDATE_PHOTO = 'TOGGLE_UPDATE_PHOTO';
+export const SUBMIT_EDIT = "SUBMIT_EDIT";
 
 export const login = creds => dispatch => {
   dispatch({ type: LOGIN_START });
@@ -108,3 +109,16 @@ export const updateSinglePhoto = photo => {
     payload: photo
   };
 };
+
+export const submitEdit = (edits, photoId) => {
+  return function(dispatch) {
+    axios
+      .put(`https://expat-journal.herokuapp.com/api/photos/all/${photoId}`, edits)
+      .then(({ data }) => {
+        dispatch({ type: SINGLE_PHOTO, payload: data });
+      })
+      .catch(err => {
+        dispatch({ type: ERROR, payload: err });
+      });
+  };
+};  

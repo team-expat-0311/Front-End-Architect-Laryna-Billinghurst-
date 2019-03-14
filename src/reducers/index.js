@@ -1,15 +1,18 @@
-import { ERROR, ADDING_USER, ADD_USER, GETTING_PHOTOS, GET_PHOTOS, ADDING_PHOTO, ADD_PHOTO, UPDATING_PHOTO, UPDATE_PHOTO, DELETING_PHOTO, DELETE_PHOTO, SINGLE_PHOTO, TOGGLE_UPDATE_PHOTO } from '../actions';
+import { ERROR, ADDING_USER, ADD_USER, GETTING_PHOTOS, GET_PHOTOS, ADDING_PHOTO, ADD_PHOTO, UPDATING_PHOTO,
+     UPDATE_PHOTO, DELETING_PHOTO, DELETE_PHOTO, SINGLE_PHOTO, TOGGLE_UPDATE_PHOTO, SUBMIT_EDIT } from '../actions/index';
 
 const initialState = {
     register: [],
     all: [],
     id: [],
     photoSelected: {},
-    showUpdate: false,
     photoId: [],
     addingUser: false,
     gettingPhotos: false,
     addingPhoto: false,
+    showUpdate: false,
+    updatingPhoto: false,
+    photoUpdated: false,
     error: null
 };
 
@@ -38,7 +41,9 @@ const reducer = (state = initialState, action) => {
         case SINGLE_PHOTO:
             return { ...state, photoSelected: action.payload, showUpdate: false };
         case TOGGLE_UPDATE_PHOTO:
-            return { ...state, showUpdate: !state.showUpdate };           
+            return { ...state, showUpdate: !state.showUpdate };
+        case SUBMIT_EDIT:
+            return Object.assign({}, state, { all: action.payload });           
         case ERROR:
             return {
                 ...state,
