@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router'
 import { login } from '../actions'
 
 class Login extends React.Component {
@@ -22,15 +22,17 @@ class Login extends React.Component {
 
   login = e => {
       e.preventDefault();
-      this.props.login(this.state.credentials)
-      .then(() => {
-        this.props.history.push('/protected');
-      });
-  }
+      this.props.login(this.state.credentials);
+
+      // this.props.push('/protected');
+      // location.reload();
+  };
+  
 
   render() {
     return (
       <div>
+        <h1>Login</h1>
         <form onSubmit={this.login}>
           <input
             type="text"

@@ -29,6 +29,7 @@ class PhotoForm extends Component {
           placeholder="Image URL"
           onChange={this.handleInputChange}
         />
+        <br />
         <input
           className="input"
           value={this.state.location}
@@ -37,6 +38,7 @@ class PhotoForm extends Component {
           placeholder="Location"
           onChange={this.handleInputChange}
         />
+        <br />
         <input
           className="input"
           value={this.state.description}
@@ -45,6 +47,7 @@ class PhotoForm extends Component {
           placeholder="Description"
           onChange={this.handleInputChange}
         />
+        <br />
         <button onClick={() => this.handleAddPhoto()} type="button">
           Add New Expat
         </button>

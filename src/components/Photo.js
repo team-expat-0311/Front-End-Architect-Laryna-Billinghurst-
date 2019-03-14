@@ -4,7 +4,12 @@ import SelectedPhoto from './SelectedPhoto';
 import UpdatePhotoForm from './UpdatePhotoForm';
 import { connect } from 'react-redux';
 import { deletePhoto, updateSinglePhoto, toggleShowUpdate, submitEdit } from '../actions';
+import styled, { css } from 'styled-components';
 
+const Img = styled.img`
+    width: 250px;
+    height: 125px;
+`;
 
 class Photo extends React.Component {
   handleDeletePhoto = () => {
@@ -42,7 +47,8 @@ class Photo extends React.Component {
           {this.props.all.map(photo => {
             return (
               <button onClick={() => this.handleShowPhoto(photo)} key={photo.id}>
-                <img src={photo.img_url} alt={photo.location} />
+                <Img src={photo.img_url} alt={photo.location} />
+                <p><strong><br />{photo.location}<br />{photo.description}</strong></p>
               </button>
             );
           })}
@@ -66,27 +72,3 @@ export default connect(mapStateToProps, {
   updateSinglePhoto,
   toggleShowUpdate
 })(Photo);
-
-
-
-
-
-
-
-
-
-
-
-
-// function Photo(props) {
-
-//   return (
-//     <div>
-//       <img src={props.img_url} alt={props.location} />
-//       <p>Location:<br />{props.location}</p>
-//       <p>Description:<br /> {props.description}</p>
-//     </div>
-//   );
-// };
-
-// export default Photo;

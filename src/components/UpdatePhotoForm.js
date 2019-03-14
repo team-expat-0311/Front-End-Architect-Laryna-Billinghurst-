@@ -40,25 +40,25 @@ class UpdatePhotoForm extends React.Component {
                     <input
                       onChange={this.inputEdit}
                       name="editedImg_url"
-                      placeholder="edit image url"
+                      placeholder={this.props.photo.img_url}
                       value={this.state.editedImg_url}
                     />
                     <input
                       onChange={this.inputEdit}
                       name="editedLocation"
-                      placeholder="edit location"
+                      placeholder={this.props.photo.location}
                       value={this.state.editedLocation}
                     />
                     <input
                       onChange={this.inputEdit}
                       name="editedDescription"
-                      placeholder="edit description"
+                      placeholder={this.props.photo.description}
                       value={this.state.editedDescription}
                     />
                     <button onClick={this.submitEdit}>Confirm Edit</button>
                   </form>
                 ) : null}
-                <button onClick={this.updatePhoto}>Update</button>
+                <button onClick={this.updatePhoto}>Toggle Update Editor</button>
               </div>
             );
           }
