@@ -32,6 +32,7 @@ class Photo extends React.Component {
     return (
       <div>
         <div>
+          {/* prop switch */}
         {Object.keys(this.props.photoSelected) ? (
           <SelectedPhoto
             handleShowPhoto={this.handleShowPhoto}
@@ -40,15 +41,18 @@ class Photo extends React.Component {
             selected={this.props.photoSelected}
           />
         ) : null}
+          {/* prop switch */}
         {this.props.showUpdate ? (
           <UpdatePhotoForm photo={this.props.photoSelected} />
         ) : null}
+          {/* {prop switch} */}
         {this.props.deletingPhoto ? (
           <img src='https://www.andreasartgallery.com/wp-content/uploads/2018/05/button_PatienceLoading.jpg' alt="loading" />
         ) : null}
         </div>
         <ul>
         <Ph1>Expat List</Ph1>  
+         {/* objects mapped into clickable buttons to use the selectedphoto method */}
           {this.props.all.map(photo => {
             return (
               <button onClick={() => this.handleShowPhoto(photo)} key={photo.id}>

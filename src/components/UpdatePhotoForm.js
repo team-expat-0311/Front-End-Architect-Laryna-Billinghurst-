@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { submitEdit } from "../actions";
-
+//pseudo state to become store state onSubmit and following methods
 class UpdatePhotoForm extends React.Component {
     constructor() {
         super();
@@ -65,6 +65,7 @@ class UpdatePhotoForm extends React.Component {
         }
         
         const mapStateToProps = state => {
+          // onSubmit will go back to orignal store named all
           return {
             all: state.all
           };

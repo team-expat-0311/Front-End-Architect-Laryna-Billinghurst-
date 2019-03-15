@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
+import { connect } from 'react-redux';
 import { getPhotos } from '../actions';
+
 import Photo from './Photo';
 import PhotoForm from './PhotoForm'
 import ImgDrop from './ImgDrop';
 import styled from 'styled-components';
-
 
 //Styling tags with added initial P
 
@@ -54,6 +54,7 @@ class Protected extends React.Component {
     
     const mapStateToProps = state => {
       return {
+        // redux store access array
         all: state.all,
         error: state.error,
         gettingPhotos: state.gettingPhotos

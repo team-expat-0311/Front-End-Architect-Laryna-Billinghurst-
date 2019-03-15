@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+//styling
 const Pdiv = styled.div `
   background-color: blue;
   margin: auto;
@@ -15,7 +15,7 @@ const Pimg = styled.img `
   width: 100%
 `;
 
-
+//object wll prop through to a singular instance
 export default function SelectedPhoto(props) {
   return (
     <Pdiv> 

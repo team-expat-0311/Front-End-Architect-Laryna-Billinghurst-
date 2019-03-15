@@ -18,6 +18,8 @@ photo <-(selectedphoto)<->(updatephotoform)
 API CRUD are utilized with Redux
 connect methods through import {connect}
 
+Added comments to all js pages for additional understanding of flow
+
 ---------------------------------------------------------------------------
 
 API end-points
