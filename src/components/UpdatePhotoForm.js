@@ -74,11 +74,3 @@ class UpdatePhotoForm extends React.Component {
           mapStateToProps,
           { submitEdit }
         )(UpdatePhotoForm);
-
-
-
-{/* <form>
-<input placeholder={props.photo.img_url} />
-<input placeholder={props.photo.location} />
-<input placeholder={props.photo.description} />
-</form> */}

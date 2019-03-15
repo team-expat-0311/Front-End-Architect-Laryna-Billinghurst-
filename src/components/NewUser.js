@@ -21,6 +21,7 @@ class NewUser extends Component {
     const { username, password, name, role, age, location } = this.state;
     this.props.addUser({ username, password, name, role, age, location });
     this.setState({ username: '', password: '', name: '', role: '', age: '', location: '' });
+    alert('User Created');
   };
 
   render() {
