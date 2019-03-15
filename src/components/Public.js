@@ -4,9 +4,6 @@ import { connect } from 'react-redux';
 import NewUser from './NewUser';
 
 class Public extends React.Component {
-    // componentDidMount() {
-    //     this.props.getUsers();
-    // }
 
     render() {
         return (

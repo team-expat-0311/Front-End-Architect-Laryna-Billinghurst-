@@ -21,6 +21,7 @@ class NewUser extends Component {
     const { username, password, name, role, age, location } = this.state;
     this.props.addUser({ username, password, name, role, age, location });
     this.setState({ username: '', password: '', name: '', role: '', age: '', location: '' });
+    alert('User Created');
   };
 
   render() {
@@ -34,6 +35,7 @@ class NewUser extends Component {
           placeholder="Username"
           onChange={this.handleInputChange}
         />
+        <br />
         <input
           className="input"
           value={this.state.password}
@@ -42,6 +44,7 @@ class NewUser extends Component {
           placeholder="Password"
           onChange={this.handleInputChange}
         />
+        <br />
         <input
           className="input"
           value={this.state.name}
@@ -50,11 +53,13 @@ class NewUser extends Component {
           placeholder="Name"
           onChange={this.handleInputChange}
         />
+        <br />
         {/* select option for setting user role */}
         <select value={this.state.value} name="role" onChange={this.handleInputChange}>
             <option value='expat'>Expat</option>
             <option value='viewer'>Viewer</option>
         </select>
+        <br />
         <input
           className="input"
           value={this.state.age}
@@ -63,6 +68,7 @@ class NewUser extends Component {
           placeholder="Age"
           onChange={this.handleInputChange}
         />
+        <br />
         <input
           className="input"
           value={this.state.location}
@@ -71,6 +77,7 @@ class NewUser extends Component {
           placeholder="Location"
           onChange={this.handleInputChange}
         />
+        <br />
         <button onClick={() => this.handleAddUser()} type="button">
           Create New User
         </button>

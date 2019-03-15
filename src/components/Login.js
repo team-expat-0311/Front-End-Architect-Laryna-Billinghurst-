@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { login } from '../actions'
+import { login } from '../actions';
 
 class Login extends React.Component {
   state = {
@@ -22,15 +21,15 @@ class Login extends React.Component {
 
   login = e => {
       e.preventDefault();
-      this.props.login(this.state.credentials)
-      .then(() => {
-        this.props.history.push('/protected');
-      });
-  }
+      this.props.login(this.state.credentials);
+      alert('login successful');
+  };
+  
 
   render() {
     return (
       <div>
+        <h1>Login</h1>
         <form onSubmit={this.login}>
           <input
             type="text"
@@ -51,7 +50,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  { login }
-)(Login);
+export default connect( null, { login })(Login);

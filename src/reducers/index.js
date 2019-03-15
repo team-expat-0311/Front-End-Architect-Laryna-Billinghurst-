@@ -1,6 +1,6 @@
 import { ERROR, ADDING_USER, ADD_USER, GETTING_PHOTOS, GET_PHOTOS, ADDING_PHOTO, ADD_PHOTO, UPDATING_PHOTO,
      UPDATE_PHOTO, DELETING_PHOTO, DELETE_PHOTO, SINGLE_PHOTO, TOGGLE_UPDATE_PHOTO, SUBMIT_EDIT } from '../actions/index';
-
+//create multiple arrays for the purpose of orginizing api calls
 const initialState = {
     register: [],
     all: [],
@@ -15,7 +15,7 @@ const initialState = {
     photoUpdated: false,
     error: null
 };
-
+//actions functions when method is called and linked with action through export/import
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case ADDING_USER:
