@@ -23,9 +23,6 @@ class Login extends React.Component {
   login = e => {
       e.preventDefault();
       this.props.login(this.state.credentials);
-
-      // this.props.push('/protected');
-      // location.reload();
   };
   
 
@@ -53,7 +50,4 @@ class Login extends React.Component {
   }
 }
 
-export default connect(
-  null,
-  { login }
-)(Login);
+export default connect( null, { login })(Login);

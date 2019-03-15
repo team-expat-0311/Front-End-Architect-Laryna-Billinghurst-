@@ -3,12 +3,16 @@ import React from 'react';
 import SelectedPhoto from './SelectedPhoto';
 import UpdatePhotoForm from './UpdatePhotoForm';
 import { connect } from 'react-redux';
-import { deletePhoto, updateSinglePhoto, toggleShowUpdate, submitEdit } from '../actions';
-import styled, { css } from 'styled-components';
+import { deletePhoto, updateSinglePhoto, toggleShowUpdate } from '../actions';
+import styled from 'styled-components';
 
 const Img = styled.img`
     width: 250px;
     height: 125px;
+`;
+const Ph1 = styled.h1 `
+  color: orange;
+  text-shadow: 2px 2px black;
 `;
 
 class Photo extends React.Component {
@@ -44,6 +48,7 @@ class Photo extends React.Component {
         ) : null}
         </div>
         <ul>
+        <Ph1>Expat List</Ph1>  
           {this.props.all.map(photo => {
             return (
               <button onClick={() => this.handleShowPhoto(photo)} key={photo.id}>
