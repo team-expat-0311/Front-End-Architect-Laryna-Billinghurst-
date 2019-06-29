@@ -1,0 +1,4 @@
+[build]
+base = "expat/"
+publish = "expat/"
+command = "yarn build"
